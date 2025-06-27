@@ -13,11 +13,12 @@ def main(value: int, *, times: int = 1) -> None:
 
 def demo_bind() -> None:
     call = bind(main, argv=["1", "--times", "2"])
-    call()
+    result1: None = call()
     call2, rest = bind_known(main, argv=["2", "--times", "3"])
-    call2()
+    result2: None = call2()
 
 
 if __name__ == "__main__":
     demo_bind()
-    run(main)
+    result3: None = run(main)
+

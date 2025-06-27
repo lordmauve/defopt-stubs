@@ -1,50 +1,50 @@
-from typing import Any, Callable, Dict, List, Optional, Union, Literal, Tuple
+from typing import Any, Callable, Literal
 
-Funcs = Union[Callable[..., Any], List[Callable[..., Any]], Dict[str, "Funcs"]]
+type Funcs[T] = Callable[..., T] | list[Callable[..., T]] | dict[str, Funcs[T]]
 
 __version__: str
 
-def run(
-    funcs: Funcs,
+def run[T](
+    funcs: Funcs[T],
     *,
-    parsers: Dict[type, Callable[[str], Any]] = ..., 
-    short: Optional[Dict[str, str]] = ..., 
-    cli_options: Literal["kwonly", "all", "has_default"] = ..., 
-    show_defaults: bool = ..., 
-    show_types: bool = ..., 
-    no_negated_flags: bool = ..., 
-    version: Union[str, None, bool] = ..., 
-    argparse_kwargs: dict = ..., 
-    intermixed: bool = ..., 
-    argv: Optional[List[str]] = ...,
-) -> Any: ...
+    parsers: dict[type, Callable[[str], Any]] = ...,
+    short: dict[str, str] | None = ...,
+    cli_options: Literal["kwonly", "all", "has_default"] = ...,
+    show_defaults: bool = ...,
+    show_types: bool = ...,
+    no_negated_flags: bool = ...,
+    version: str | None | bool = ...,
+    argparse_kwargs: dict = ...,
+    intermixed: bool = ...,
+    argv: list[str] | None = ...,
+) -> T: ...
 
-def bind(
-    funcs: Funcs,
+def bind[T](
+    funcs: Funcs[T],
     *,
-    parsers: Dict[type, Callable[[str], Any]] = ...,
-    short: Optional[Dict[str, str]] = ..., 
-    cli_options: Literal["kwonly", "all", "has_default"] = ..., 
-    show_defaults: bool = ..., 
-    show_types: bool = ..., 
-    no_negated_flags: bool = ..., 
-    version: Union[str, None, bool] = ..., 
-    argparse_kwargs: dict = ..., 
-    intermixed: bool = ..., 
-    argv: Optional[List[str]] = ...,
-) -> Callable[[], Any]: ...
+    parsers: dict[type, Callable[[str], Any]] = ...,
+    short: dict[str, str] | None = ...,
+    cli_options: Literal["kwonly", "all", "has_default"] = ...,
+    show_defaults: bool = ...,
+    show_types: bool = ...,
+    no_negated_flags: bool = ...,
+    version: str | None | bool = ...,
+    argparse_kwargs: dict = ...,
+    intermixed: bool = ...,
+    argv: list[str] | None = ...,
+) -> Callable[[], T]: ...
 
-def bind_known(
-    funcs: Funcs,
+def bind_known[T](
+    funcs: Funcs[T],
     *,
-    parsers: Dict[type, Callable[[str], Any]] = ...,
-    short: Optional[Dict[str, str]] = ..., 
-    cli_options: Literal["kwonly", "all", "has_default"] = ..., 
-    show_defaults: bool = ..., 
-    show_types: bool = ..., 
-    no_negated_flags: bool = ..., 
-    version: Union[str, None, bool] = ..., 
-    argparse_kwargs: dict = ..., 
-    intermixed: bool = ..., 
-    argv: Optional[List[str]] = ...,
-) -> Tuple[Callable[[], Any], List[str]]: ...
+    parsers: dict[type, Callable[[str], Any]] = ...,
+    short: dict[str, str] | None = ...,
+    cli_options: Literal["kwonly", "all", "has_default"] = ...,
+    show_defaults: bool = ...,
+    show_types: bool = ...,
+    no_negated_flags: bool = ...,
+    version: str | None | bool = ...,
+    argparse_kwargs: dict = ...,
+    intermixed: bool = ...,
+    argv: list[str] | None = ...,
+) -> tuple[Callable[[], T], list[str]]: ...
