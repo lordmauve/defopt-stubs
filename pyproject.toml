@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "types-defopt"
 dynamic = ["version"]
-authors = [{name="Daniel Pope", email=""}]
+authors = [{name="Daniel Pope"}]
 description = "Typing stubs for the defopt package"
 readme = "README.md"
 license = {text = "MIT"}
@@ -28,4 +28,7 @@ python_version = "3.8"
 strict = true
 
 [tool.setuptools_scm]
+
+[dependency-groups]
+dev = ["mypy"]
 
