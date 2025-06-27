@@ -15,15 +15,15 @@ pip install types-defopt
 ## Development
 
 Stubs are located under `stubs/defopt`. Use the provided `Makefile`
-to validate them within an isolated environment:
+and `uv` to validate them:
 
 ```
 make test
 ```
 
-This creates a virtual environment, installs the runtime library and the
-stubs, and then type-checks both the stubs and an example script. The CI
-workflow performs the same check.
+`make test` runs `uv sync` to install development dependencies and the
+runtime library before type-checking the stubs and an example script.
+The CI workflow performs the same check.
 
 ## Publishing
 
