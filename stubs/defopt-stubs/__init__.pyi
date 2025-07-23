@@ -14,7 +14,7 @@ def run(
     show_types: bool = ..., 
     no_negated_flags: bool = ..., 
     version: Union[str, None, bool] = ..., 
-    argparse_kwargs: dict = ..., 
+    argparse_kwargs: Dict[str, Any] = ...,
     intermixed: bool = ..., 
     argv: Optional[List[str]] = ...,
 ) -> Any: ...
@@ -29,7 +29,7 @@ def bind(
     show_types: bool = ..., 
     no_negated_flags: bool = ..., 
     version: Union[str, None, bool] = ..., 
-    argparse_kwargs: dict = ..., 
+    argparse_kwargs: Dict[str, Any] = ...,
     intermixed: bool = ..., 
     argv: Optional[List[str]] = ...,
 ) -> Callable[[], Any]: ...
@@ -44,7 +44,7 @@ def bind_known(
     show_types: bool = ..., 
     no_negated_flags: bool = ..., 
     version: Union[str, None, bool] = ..., 
-    argparse_kwargs: dict = ..., 
+    argparse_kwargs: Dict[str, Any] = ...,
     intermixed: bool = ..., 
     argv: Optional[List[str]] = ...,
 ) -> Tuple[Callable[[], Any], List[str]]: ...
