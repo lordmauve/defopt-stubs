@@ -13,8 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - run: pip install build
-      - run: python -m build --sdist --wheel
+      - uses: astral-sh/setup-uv@v1
+      - run: uvx build --sdist --wheel
       - uses: pypa/gh-action-pypi-publish@v1
         with:
           password: '${{ secrets.PYPI_TOKEN }}'
