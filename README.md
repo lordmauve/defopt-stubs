@@ -1,4 +1,4 @@
-# types-defopt
+# defopt-stubs
 
 Typing stubs for the [defopt](https://github.com/anntzer/defopt) package.
 
@@ -9,12 +9,12 @@ covered. Contributions to improve coverage are welcome.
 ## Installation
 
 ```
-pip install types-defopt
+pip install defopt-stubs
 ```
 
 ## Development
 
-Stubs are located under `stubs/defopt`. Use the provided `Makefile`
+Stubs are located under `stubs/defopt-stubs`. Use the provided `Makefile`
 and `uv` to validate them:
 
 ```

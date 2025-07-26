@@ -3,7 +3,7 @@ requires = ["setuptools>=61", "setuptools_scm[toml]>=6.4"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "types-defopt"
+name = "defopt-stubs"
 dynamic = ["version"]
 authors = [{name="Daniel Pope", email="mauve@mauveweb.co.uk"}]
 description = "Typing stubs for the defopt package"
@@ -17,11 +17,12 @@ classifiers = [
 ]
 
 [tool.setuptools.package-data]
-"defopt" = ["py.typed", "*.pyi"]
+"*" = ["py.typed", "*.pyi"]
 
 [tool.setuptools.packages.find]
 where = ["stubs"]
 namespaces = false
+include = ["defopt-stubs"]
 
 [tool.mypy]
 python_version = "3.8"
@@ -30,5 +31,5 @@ strict = true
 [tool.setuptools_scm]
 
 [dependency-groups]
-dev = ["mypy"]
+dev = ["mypy", "defopt"]
 
