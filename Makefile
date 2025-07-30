@@ -8,7 +8,7 @@ clean:
 	rm -rf .mypy_cache
 
 sync:
-	uv sync --active --group dev
+	uv sync --group dev
 
 # Run mypy on stubs and example script
 mypy: sync
