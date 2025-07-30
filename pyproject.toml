@@ -25,7 +25,7 @@ namespaces = false
 include = ["defopt-stubs"]
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.12"
 strict = true
 
 [tool.setuptools_scm]
