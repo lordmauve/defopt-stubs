@@ -1,4 +1,4 @@
-from defopt import run, bind, bind_known
+from defopt import run, bind, bind_known, signature
 
 
 def main(value: int, *, times: int = 1) -> int:
@@ -20,6 +20,13 @@ def demo_bind() -> None:
     ret2: int = call2()
 
 
+def demo_signature() -> None:
+    sig = signature(main)
+    doc: str | None = sig.doc
+    param_doc: str | None = sig.parameters["value"].doc
+
+
 if __name__ == "__main__":
     demo_bind()
+    demo_signature()
     res: int = run(main)

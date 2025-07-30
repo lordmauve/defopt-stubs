@@ -1,3 +1,5 @@
+import types
+import inspect
 from typing import Callable, Dict, List, Optional, Union, Literal, Tuple
 
 type Funcs[T] = Callable[..., T] | List[Callable[..., T]] | Dict[str, Funcs[T]]
@@ -49,3 +51,29 @@ def bind_known[T](
     intermixed: bool = ..., 
     argv: Optional[List[str]] = ...,
 ) -> Tuple[Callable[[], T], List[str]]: ...
+class Parameter(inspect.Parameter):
+    doc: Optional[str]
+    def replace(
+        self,
+        *,
+        doc: Optional[str] = ...,
+        **kwargs: object,
+    ) -> "Parameter": ...
+
+class Signature(inspect.Signature):
+    doc: Optional[str]
+    raises: Tuple[type[BaseException], ...]
+
+    @property
+    def parameters(self) -> types.MappingProxyType[str, Parameter]: ...
+
+    def replace(
+        self,
+        *,
+        doc: Optional[str] = ...,
+        raises: Tuple[type[BaseException], ...] = ...,
+        **kwargs: object,
+    ) -> "Signature": ...
+
+
+def signature(func: Callable[..., object] | str) -> Signature: ...
