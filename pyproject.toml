@@ -16,18 +16,17 @@ classifiers = [
     "Typing :: Stubs Only",
 ]
 
+[tool.setuptools]
+package-dir = {"" = "stubs"}
+packages = ["defopt-stubs"]
+
 [tool.setuptools.package-data]
 "*" = ["py.typed", "*.pyi"]
-
-[tool.setuptools.packages.find]
-where = ["stubs"]
-namespaces = false
-include = ["defopt-stubs"]
 
 [tool.mypy]
 python_version = "3.12"
 strict = true
-files = ["stubs/defopt-stubs", "tests/test_script.py"]
+files = ["tests/test_script.py"]
 
 [tool.setuptools_scm]
 
