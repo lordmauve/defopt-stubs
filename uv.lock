@@ -33,7 +33,7 @@ wheels = [
 
 [[package]]
 name = "defopt-stubs"
-source = { editable = "." }
+source = { path = "." }
 
 [package.dev-dependencies]
 dev = [
