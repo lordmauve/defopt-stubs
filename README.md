@@ -18,7 +18,7 @@ Stubs are located under `stubs/defopt-stubs`. After installing development
 dependencies with `uv`, validate them by running `mypy`:
 
 ```
-uv sync --group dev
+uv sync
 mypy
 python tests/test_script.py 42 --times 1
 ```
