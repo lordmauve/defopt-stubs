@@ -14,16 +14,17 @@ pip install defopt-stubs
 
 ## Development
 
-Stubs are located under `stubs/defopt-stubs`. Use the provided `Makefile`
-and `uv` to validate them:
+Stubs are located under `stubs/defopt-stubs`. After installing development
+dependencies with `uv`, validate them by running `mypy`:
 
 ```
-make test
+uv sync
+mypy
+python tests/test_script.py 42 --times 1
 ```
 
-`make test` runs `uv sync` to install development dependencies and the
-runtime library before type-checking the stubs and an example script.
-The CI workflow performs the same check.
+`uv sync` installs the runtime library and tooling required for type
+checking. The CI workflow performs the same steps.
 
 ## Publishing
 

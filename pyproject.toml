@@ -27,6 +27,7 @@ include = ["defopt-stubs"]
 [tool.mypy]
 python_version = "3.12"
 strict = true
+files = ["stubs/defopt-stubs", "tests/test_script.py"]
 
 [tool.setuptools_scm]
 

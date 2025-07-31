@@ -15,4 +15,7 @@ jobs:
           python-version: '3.x'
       - name: Install the latest version of uv
         uses: astral-sh/setup-uv@v6
-      - run: make test
+      - run: uv sync
+      - run: echo "$(pwd)/.venv/bin" >> "$GITHUB_PATH"
+      - run: mypy
+      - run: python tests/test_script.py 42 --times 1
