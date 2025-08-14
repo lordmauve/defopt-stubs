@@ -26,7 +26,22 @@ def demo_signature() -> None:
     param_doc: str | None = sig.parameters["value"].doc
 
 
+def demo_run_dict() -> None:
+    """Demonstrate running a mapping of callables.
+
+    This ensures that ``run`` infers and returns the expected type when
+    dispatching to a subcommand.
+    """
+
+    def double(value: int) -> int:
+        return value * 2
+
+    funcs = {"double": double}
+    result: int = run(funcs, argv=["double", "3"])
+
+
 if __name__ == "__main__":
     demo_bind()
     demo_signature()
+    demo_run_dict()
     res: int = run(main)
